@@ -4,9 +4,26 @@ export const colors = {
   text: '#FFF',
   textMuted: '#9CA3AF',
   icon: '#FFF',
-  maxTrackTint: 'rgba(255, 255, 255, 0.4)',
-  minTrackTint: 'rgba(255, 255, 255, 0.6)',
   placeholder: 'rgba(255, 255, 255, 0.25)',
+}
+
+export const theme = {
+  dark: {
+    primary: 'rgba(128, 0, 128, 1)',
+    background: '#000',
+    text: '#FFF',
+    textMuted: '#9CA3AF',
+    icon: '#FFF',
+    placeholder: 'rgba(255, 255, 255, 0.5)',
+  },
+  light: {
+    primary: 'rgba(128, 0, 128, 1)',
+    background: '#FFF',
+    text: '#000',
+    textMuted: '#9CA3AF',
+    icon: '#000',
+    placeholder: 'rgba(0, 0, 0, 0.25)',
+  },
 }
 
 export const fontSize = {
