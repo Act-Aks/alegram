@@ -1,12 +1,16 @@
+import { getChatOverlayStyle } from '@/utils/misc/common'
 import { useEffect, useState } from 'react'
 import { ActivityIndicator } from 'react-native'
 import { StreamChat } from 'stream-chat'
 import { Chat, OverlayProvider } from 'stream-chat-expo'
+import { useTheme } from './ThemeProvider'
 
 const streamChatClient = StreamChat.getInstance(process.env.EXPO_PUBLIC_STREAM_API_KEY!)
 
 export default function ChatProvider({ children }: { children: React.ReactNode }) {
   const [isClientConnected, setIsClientConnected] = useState<boolean>(false)
+  const { colors } = useTheme()
+  const { style } = getChatOverlayStyle(colors)
 
   useEffect(() => {
     const connectToStream = async () => {
@@ -41,7 +45,7 @@ export default function ChatProvider({ children }: { children: React.ReactNode }
   }
 
   return (
-    <OverlayProvider>
+    <OverlayProvider value={{ style }}>
       <Chat client={streamChatClient}>{children}</Chat>
     </OverlayProvider>
   )

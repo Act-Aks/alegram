@@ -5,6 +5,7 @@ export const colors = {
   textMuted: '#9CA3AF',
   icon: '#FFF',
   placeholder: 'rgba(255, 255, 255, 0.25)',
+  error: 'rgba(255, 0, 0, .8)',
 }
 
 export const theme = {
@@ -15,6 +16,7 @@ export const theme = {
     textMuted: '#9CA3AF',
     icon: '#FFF',
     placeholder: 'rgba(255, 255, 255, 0.5)',
+    error: 'rgba(255, 0, 0, .8)',
   },
   light: {
     primary: 'rgba(128, 0, 128, 1)',
@@ -23,6 +25,7 @@ export const theme = {
     textMuted: '#9CA3AF',
     icon: '#000',
     placeholder: 'rgba(0, 0, 0, 0.25)',
+    error: 'rgba(255, 0, 0, .8)',
   },
 }
 

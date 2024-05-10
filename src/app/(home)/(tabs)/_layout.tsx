@@ -2,19 +2,45 @@ import { Icon, Logout, ThemeSwitcher } from '@/components'
 import { useTheme } from '@/providers/ThemeProvider'
 import { Tabs } from 'expo-router'
 import { StyleSheet, View } from 'react-native'
+import { Avatar } from 'stream-chat-expo'
 
 export default function TabsLayout() {
   const { colors } = useTheme()
+
+  const screenOptions: any = {
+    headerTintColor: colors.text,
+    tabBarActiveTintColor: colors.primary,
+    headerBackground: () => (
+      <View
+        style={{
+          ...styles.headerBackground,
+          backgroundColor: colors.background,
+          borderBottomColor: colors.primary,
+        }}
+      />
+    ),
+    tabBarStyle: {
+      ...styles.tabBarStyle,
+      backgroundColor: colors.background,
+      borderColor: colors.primary,
+      shadowColor: colors.primary,
+    },
+  }
 
   return (
     <Tabs>
       <Tabs.Screen
         name={'index'}
         options={{
-          title: 'Home',
-          tabBarActiveTintColor: colors.primary,
+          title: 'Alegram',
+          ...screenOptions,
           tabBarIcon: ({ size, color }) => (
             <Icon iconType={'FontAwesome'} iconName={'home'} size={size} color={color} />
+          ),
+          headerRight: () => (
+            <View style={styles.marginR}>
+              <Avatar size={32} />
+            </View>
           ),
         }}
       />
@@ -22,31 +48,15 @@ export default function TabsLayout() {
         name={'profile'}
         options={{
           title: 'Profile',
-          headerTintColor: colors.text,
-          tabBarActiveTintColor: colors.primary,
+          ...screenOptions,
+          tabBarIcon: ({ size, color }) => (
+            <Icon iconType={'FontAwesome'} iconName={'user-circle-o'} size={size} color={color} />
+          ),
           headerRight: () => (
             <View style={styles.rightHeader}>
               <Logout />
               <ThemeSwitcher />
             </View>
-          ),
-          headerBackground: () => (
-            <View
-              style={{
-                ...styles.headerBackground,
-                backgroundColor: colors.background,
-                borderBottomColor: colors.primary,
-              }}
-            />
-          ),
-          tabBarStyle: {
-            ...styles.tabBarStyle,
-            backgroundColor: colors.background,
-            borderColor: colors.primary,
-            shadowColor: colors.primary,
-          },
-          tabBarIcon: ({ size, color }) => (
-            <Icon iconType={'FontAwesome'} iconName={'user-circle-o'} size={size} color={color} />
           ),
         }}
       />
@@ -58,6 +68,9 @@ const styles = StyleSheet.create({
   rightHeader: {
     flexDirection: 'row',
     gap: 8,
+  },
+  marginR: {
+    marginRight: 12,
   },
   headerBackground: {
     flex: 1,
