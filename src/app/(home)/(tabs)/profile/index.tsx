@@ -1,4 +1,4 @@
-import { Input } from '@/components'
+import { Avatar, Input } from '@/components'
 import { basePadding } from '@/constants'
 import { useAuth } from '@/providers/AuthProvider'
 import { useTheme } from '@/providers/ThemeProvider'
@@ -6,7 +6,7 @@ import { ProfileHooks } from '@/utils/profile/profile.hooks'
 import { useEffect, useState } from 'react'
 import { Alert, Keyboard, KeyboardAvoidingView, Platform, StyleSheet, View } from 'react-native'
 import { Button } from 'react-native-elements'
-import { TouchableOpacity } from 'react-native-gesture-handler'
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
 
 export default function Profile() {
   const [loading, setLoading] = useState<boolean>(true)
@@ -80,7 +80,17 @@ export default function Profile() {
   const dismissKeyboard = () => Keyboard.dismiss()
 
   return (
-    <View style={[styles.container, { backgroundColor: colors.background }]}>
+    <ScrollView style={[styles.container, { backgroundColor: colors.background }]}>
+      <View style={{ backgroundColor: colors.background, alignItems: 'center' }}>
+        <Avatar
+          size={200}
+          url={avatarUrl}
+          onUpload={(url: string) => {
+            setAvatarUrl(url)
+            updateProfile({ username, website, avatar_url: url, full_name: fullName })
+          }}
+        />
+      </View>
       <TouchableOpacity activeOpacity={1} onPress={dismissKeyboard}>
         <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
           <View style={[styles.verticallySpaced, styles.mt20]}>
@@ -123,7 +133,7 @@ export default function Profile() {
           />
         </View>
       </TouchableOpacity>
-    </View>
+    </ScrollView>
   )
 }
 

@@ -1,4 +1,6 @@
+export { default as Avatar } from './Avatar'
 export { default as Icon } from './Icon'
 export { default as Input } from './Input'
 export { default as Logout } from './Logout'
 export { default as ThemeSwitcher } from './ThemeSwitcher'
+export { default as UserListItem } from './UserListItem'

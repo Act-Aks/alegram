@@ -62,6 +62,24 @@ export const getChatOverlayStyle = (colors: typeof ThemeColors) => {
       container: { backgroundColor: colors.background },
       maskFillColor: colors.background,
     },
+    channel: {},
+    channelPreview: {
+      container: {
+        backgroundColor: colors.background,
+        borderBottomWidth: 1,
+        borderBottomColor: colors.primary,
+      },
+      contentContainer: { backgroundColor: colors.background },
+      date: { color: colors.text, backgroundColor: colors.background },
+      message: { color: colors.text, backgroundColor: colors.background },
+      mutedStatus: {
+        iconStyle: { backgroundColor: colors.background },
+      },
+      row: { backgroundColor: colors.background },
+      title: { color: colors.text, backgroundColor: colors.background },
+      unreadContainer: { backgroundColor: colors.background },
+      unreadText: { color: colors.primary, backgroundColor: colors.background },
+    },
   }
 
   return { style }

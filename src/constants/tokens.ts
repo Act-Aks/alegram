@@ -1,5 +1,6 @@
 export const colors = {
   primary: 'rgba(128, 0, 128, 1)',
+  secondary: 'rgba(128, 0, 128, 0.4)',
   background: '#000',
   text: '#FFF',
   textMuted: '#9CA3AF',
@@ -11,6 +12,7 @@ export const colors = {
 export const theme = {
   dark: {
     primary: 'rgba(128, 0, 128, 1)',
+    secondary: 'rgba(128, 0, 128, 0.4)',
     background: '#000',
     text: '#FFF',
     textMuted: '#9CA3AF',
@@ -20,6 +22,7 @@ export const theme = {
   },
   light: {
     primary: 'rgba(128, 0, 128, 1)',
+    secondary: 'rgba(128, 0, 128, 0.4)',
     background: '#FFF',
     text: '#000',
     textMuted: '#9CA3AF',

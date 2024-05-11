@@ -1,8 +1,7 @@
 import { Icon, Logout, ThemeSwitcher } from '@/components'
 import { useTheme } from '@/providers/ThemeProvider'
-import { Tabs } from 'expo-router'
+import { Link, Tabs } from 'expo-router'
 import { StyleSheet, View } from 'react-native'
-import { Avatar } from 'stream-chat-expo'
 
 export default function TabsLayout() {
   const { colors } = useTheme()
@@ -34,13 +33,13 @@ export default function TabsLayout() {
         options={{
           title: 'Alegram',
           ...screenOptions,
+          headerRight: () => (
+            <Link href={'/(home)/users'} style={{ marginHorizontal: 16 }}>
+              <Icon iconType={'FontAwesome5'} iconName={'users'} size={24} color={colors.primary} />
+            </Link>
+          ),
           tabBarIcon: ({ size, color }) => (
             <Icon iconType={'FontAwesome'} iconName={'home'} size={size} color={color} />
-          ),
-          headerRight: () => (
-            <View style={styles.marginR}>
-              <Avatar size={32} />
-            </View>
           ),
         }}
       />
@@ -79,6 +78,7 @@ const styles = StyleSheet.create({
   },
   tabBarStyle: {
     borderWidth: 1,
+    borderTopWidth: 2,
     opacity: 0.9,
     shadowOffset: {
       width: 0,

@@ -1,26 +1,33 @@
 import { getChatOverlayStyle } from '@/utils/misc/common'
+import { ProfileHooks } from '@/utils/profile/profile.hooks'
 import { useEffect, useState } from 'react'
 import { ActivityIndicator } from 'react-native'
 import { StreamChat } from 'stream-chat'
 import { Chat, OverlayProvider } from 'stream-chat-expo'
+import { useAuth } from './AuthProvider'
 import { useTheme } from './ThemeProvider'
 
 const streamChatClient = StreamChat.getInstance(process.env.EXPO_PUBLIC_STREAM_API_KEY!)
 
 export default function ChatProvider({ children }: { children: React.ReactNode }) {
   const [isClientConnected, setIsClientConnected] = useState<boolean>(false)
+  const { profile } = useAuth()
   const { colors } = useTheme()
   const { style } = getChatOverlayStyle(colors)
 
   useEffect(() => {
+    if (!profile) {
+      return
+    }
+
     const connectToStream = async () => {
       await streamChatClient.connectUser(
         {
-          id: 'jlahey',
-          name: 'Jim Lahey',
-          image: 'https://i.imgur.com/fR9Jz14.png',
+          id: profile.id,
+          name: profile.full_name,
+          image: ProfileHooks.getUserProfileAvatarPublicUrl(profile.avatar_url),
         },
-        streamChatClient.devToken('jlahey'),
+        streamChatClient.devToken(profile.id),
       )
 
       setIsClientConnected(true)
@@ -38,7 +45,7 @@ export default function ChatProvider({ children }: { children: React.ReactNode }
       streamChatClient.disconnectUser()
       setIsClientConnected(false)
     }
-  }, [])
+  }, [profile?.id])
 
   if (!isClientConnected) {
     return <ActivityIndicator />
