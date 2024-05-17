@@ -31,7 +31,8 @@ export default function TabsLayout() {
       <Tabs.Screen
         name={'index'}
         options={{
-          title: 'Alegram',
+          headerTitle: 'Alegram',
+          title: 'Home',
           ...screenOptions,
           headerRight: () => (
             <Link href={'/(home)/users'} style={{ marginHorizontal: 16 }}>
@@ -46,6 +47,7 @@ export default function TabsLayout() {
       <Tabs.Screen
         name={'profile'}
         options={{
+          headerTitle: 'Profile',
           title: 'Profile',
           ...screenOptions,
           tabBarIcon: ({ size, color }) => (

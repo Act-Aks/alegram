@@ -34,8 +34,15 @@ export const signOut = async () => {
   }
 }
 
+export const tokenProvider = async () => {
+  const { data } = await supabase.functions.invoke('stream-token')
+  console.log(data)
+  return data.token
+}
+
 export const AuthHooks = {
   signInWithEmail,
   signUpWithEmail,
   signOut,
+  tokenProvider,
 }

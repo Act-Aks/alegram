@@ -1,3 +1,4 @@
+import { AuthHooks } from '@/utils/auth/auth.hooks'
 import { getChatOverlayStyle } from '@/utils/misc/common'
 import { ProfileHooks } from '@/utils/profile/profile.hooks'
 import { useEffect, useState } from 'react'
@@ -27,7 +28,7 @@ export default function ChatProvider({ children }: { children: React.ReactNode }
           name: profile.full_name,
           image: ProfileHooks.getUserProfileAvatarPublicUrl(profile.avatar_url),
         },
-        streamChatClient.devToken(profile.id),
+        AuthHooks.tokenProvider,
       )
 
       setIsClientConnected(true)
@@ -48,7 +49,7 @@ export default function ChatProvider({ children }: { children: React.ReactNode }
   }, [profile?.id])
 
   if (!isClientConnected) {
-    return <ActivityIndicator />
+    return <ActivityIndicator color={colors.primary} />
   }
 
   return (
