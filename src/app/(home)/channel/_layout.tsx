@@ -1,21 +1,9 @@
-import { Icon } from '@/components'
 import { useTheme } from '@/providers/ThemeProvider'
-import { useStreamVideoClient } from '@stream-io/video-react-native-sdk'
-import * as Crypto from 'expo-crypto'
-import { Stack, router } from 'expo-router'
-import { Pressable, StyleSheet, View } from 'react-native'
+import { Stack } from 'expo-router'
+import { StyleSheet, View } from 'react-native'
 
 export default function ChannelLayout() {
   const { colors } = useTheme()
-  const videoClient = useStreamVideoClient()
-
-  const onCall = async () => {
-    const callId = Crypto.randomUUID()
-    const call = videoClient!.call('default', callId)
-
-    await call.getOrCreate()
-    router.push('/call')
-  }
 
   return (
     <Stack>
@@ -35,11 +23,6 @@ export default function ChannelLayout() {
                 borderBottomColor: colors.primary,
               }}
             />
-          ),
-          headerRight: () => (
-            <Pressable onPress={onCall} style={{ marginHorizontal: 8 }}>
-              <Icon iconType={'Ionicons'} iconName={'call'} size={24} color={colors.primary} />
-            </Pressable>
           ),
         }}
       />
