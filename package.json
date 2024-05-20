@@ -10,7 +10,8 @@
     "ios": "expo run:ios",
     "web": "expo start --web",
     "format": "prettier --write .",
-    "lint": "eslint \"**/*.{ts,tsx,js,jsx}\" --fix",
+    "lint": "eslint . --fix",
+    "cq": "yarn format && yarn lint",
     "eas-build-pre-install": "corepack enable && yarn set version 4.2.2",
     "dev-deploy:android": "eas build --profile development --platform android",
     "dev-deploy:ios": "eas build --profile development --platform ios"

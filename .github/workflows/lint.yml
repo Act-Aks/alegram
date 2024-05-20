@@ -1,0 +1,41 @@
+name: Code Quality
+
+on:
+  pull_request:
+    branches:
+      - main
+
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Enable corepack
+        run: corepack enable
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: 'yarn'
+          cache-dependency-path: '**/yarn.lock'
+          always-auth: true
+
+      - name: Set Yarn version
+        run: yarn set version stable
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: lint
+        run: yarn lint
