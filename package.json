@@ -14,7 +14,8 @@
     "cq": "yarn format && yarn lint",
     "eas-build-pre-install": "corepack enable && yarn set version 4.2.2",
     "dev-deploy:android": "eas build --profile development --platform android",
-    "dev-deploy:ios": "eas build --profile development --platform ios"
+    "dev-deploy:ios": "eas build --profile development --platform ios",
+    "dev-deploy": "eas build --profile development"
   },
   "dependencies": {
     "@config-plugins/react-native-webrtc": "^9.0.0",
