@@ -19,6 +19,8 @@ jobs:
             exit 1
           fi
 
+          exit 1
+
       - name: 🏗 Setup repo
         uses: actions/checkout@v4
         with:
