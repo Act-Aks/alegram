@@ -12,7 +12,9 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
       "bitcode": false,
@@ -52,7 +54,9 @@
             "minSdkVersion": 24,
             "compileSdkVersion": 34,
             "targetSdkVersion": 33,
-            "extraMavenRepos": ["../../node_modules/@notifee/react-native/android/libs"]
+            "extraMavenRepos": [
+              "../../node_modules/@notifee/react-native/android/libs"
+            ]
           }
         }
       ],
@@ -72,6 +76,7 @@
       "eas": {
         "projectId": "35403552-d3fd-4684-8e81-af8d7a9334ba"
       }
-    }
+    },
+    "owner": "act-aks"
   }
 }
