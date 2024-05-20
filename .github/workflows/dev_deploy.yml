@@ -11,7 +11,14 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Check for EXPO_TOKEN
+        run: |
+          if [ -z "${{ secrets.EXPO_TOKEN }}" ]; then
+            echo "EXPO_TOKEN is not found"
+            exit 1
+          fi
+
+      - name: 🏗 Setup repo
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -27,8 +34,17 @@ jobs:
           cache-dependency-path: yarn.lock
           always-auth: true
 
+      - name: Set Yarn version
+        run: yarn set version stable
+
+      - name: 🏗 Setup EAS
+        uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+
       - name: Install dependencies
         run: yarn install --immutable
 
-      - name: build and deploy
-        run: yarn dev-deploy
+      - name: 🚀 Build app
+        run: eas build --non-interactive --development
