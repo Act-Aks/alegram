@@ -3,11 +3,11 @@ name: Code Quality
 on:
   pull_request:
     branches:
-      - main
+      - master
 
   push:
     branches:
-      - main
+      - master
 
   workflow_dispatch:
 
