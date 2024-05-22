@@ -47,6 +47,7 @@
     "expo-status-bar": "~1.12.1",
     "react": "18.2.0",
     "react-native": "0.74.1",
+    "react-native-callkeep": "^4.3.13",
     "react-native-elements": "^3.4.3",
     "react-native-gesture-handler": "~2.16.1",
     "react-native-incall-manager": "^4.2.0",
@@ -55,6 +56,7 @@
     "react-native-screens": "3.31.1",
     "react-native-svg": "15.2.0",
     "react-native-url-polyfill": "^2.0.0",
+    "react-native-voip-push-notification": "^3.3.2",
     "stream-chat-expo": "^5.29.0"
   },
   "devDependencies": {

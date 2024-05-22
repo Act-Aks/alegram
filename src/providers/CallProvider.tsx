@@ -11,6 +11,7 @@ export default function CallProvider({ children }: PropsWithChildren) {
   const { top } = useSafeAreaInsets()
   const segments = useSegments()
   const isOnCallScreen = segments[1] === 'call'
+  const isRinging = call.state.callingState === 'ringing'
 
   console.log(segments)
 
@@ -27,7 +28,7 @@ export default function CallProvider({ children }: PropsWithChildren) {
   return (
     <>
       {children}
-      {call && !isOnCallScreen && (
+      {call && !isOnCallScreen && !isRinging && (
         <Pressable
           style={[styles.callHintContainer, { top: top + 50 }]}
           onPress={() => router.push(`/call`)}

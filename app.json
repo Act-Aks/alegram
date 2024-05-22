@@ -48,6 +48,26 @@
     "plugins": [
       "expo-router",
       [
+        "@stream-io/video-react-native-sdk",
+        {
+          "ringingPushNotifications": {
+            "disableVideoIos": false,
+            "includesCallsInRecentsIos": false,
+            "showWhenLockedAndroid": true
+          }
+        }
+      ],
+      [
+        "@config-plugins/react-native-webrtc",
+        {
+          "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera",
+          "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone"
+        }
+      ],
+      "@config-plugins/react-native-callkeep",
+      "@react-native-firebase/app",
+      "@react-native-firebase/messaging",
+      [
         "expo-build-properties",
         {
           "android": {
@@ -60,17 +80,7 @@
             "useFrameworks": "static"
           }
         }
-      ],
-      "@stream-io/video-react-native-sdk",
-      [
-        "@config-plugins/react-native-webrtc",
-        {
-          "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera",
-          "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone"
-        }
-      ],
-      "@react-native-firebase/app",
-      "@react-native-firebase/messaging"
+      ]
     ],
     "extra": {
       "router": {

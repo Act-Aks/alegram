@@ -3579,6 +3579,7 @@ __metadata:
     prettier: "npm:^3.2.5"
     react: "npm:18.2.0"
     react-native: "npm:0.74.1"
+    react-native-callkeep: "npm:^4.3.13"
     react-native-elements: "npm:^3.4.3"
     react-native-gesture-handler: "npm:~2.16.1"
     react-native-incall-manager: "npm:^4.2.0"
@@ -3587,6 +3588,7 @@ __metadata:
     react-native-screens: "npm:3.31.1"
     react-native-svg: "npm:15.2.0"
     react-native-url-polyfill: "npm:^2.0.0"
+    react-native-voip-push-notification: "npm:^3.3.2"
     stream-chat-expo: "npm:^5.29.0"
     supabase: "npm:1.167.4"
     typescript: "npm:~5.3.3"
@@ -10119,6 +10121,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-callkeep@npm:^4.3.13":
+  version: 4.3.13
+  resolution: "react-native-callkeep@npm:4.3.13"
+  peerDependencies:
+    react-native: ">=0.40.0"
+  checksum: 10c0/50fd0d65c171d8552c993836295c84f7bd668a261e040f0b09d1b9f0fa1f9af90665863ac5815f730a3dc00b508cd0be21e31e360af62862be1133135dd0b75e
+  languageName: node
+  linkType: hard
+
 "react-native-elements@npm:^3.4.3":
   version: 3.4.3
   resolution: "react-native-elements@npm:3.4.3"
@@ -10292,6 +10303,15 @@ __metadata:
   peerDependencies:
     react-native: "*"
   checksum: 10c0/a48e6978f5a2c9e225bb93cc5f9985a8ac0fe7d8122105bcd88ef8d8420a3b33a67ce5d2bda2b606bf5fa94af9f6d04efce354580b60900e7c967fd2ebdc42cf
+  languageName: node
+  linkType: hard
+
+"react-native-voip-push-notification@npm:^3.3.2":
+  version: 3.3.2
+  resolution: "react-native-voip-push-notification@npm:3.3.2"
+  peerDependencies:
+    react-native: ">=0.60.0"
+  checksum: 10c0/1dfa97e5f65cb04d5735a73640609372e227d2fcfb721624308035e41063bd4b8a158ea44a53b79c51ce6ba9b7bfed2ae0769296a548af77084e89d76d56b59a
   languageName: node
   linkType: hard
 
