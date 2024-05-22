@@ -1,4 +1,5 @@
 import { useAuth } from '@/providers/AuthProvider'
+import CallProvider from '@/providers/CallProvider'
 import ChatProvider from '@/providers/ChatProvider'
 import VideoProvider from '@/providers/VideoProvider'
 import { Redirect, Stack } from 'expo-router'
@@ -13,9 +14,11 @@ export default function HomeLayout() {
   return (
     <ChatProvider>
       <VideoProvider>
-        <Stack screenOptions={{ headerShown: false }}>
-          <Stack.Screen name={'(tabs)'} options={{ headerShown: false }} />
-        </Stack>
+        <CallProvider>
+          <Stack screenOptions={{ headerShown: false }}>
+            <Stack.Screen name={'(tabs)'} options={{ headerShown: false }} />
+          </Stack>
+        </CallProvider>
       </VideoProvider>
     </ChatProvider>
   )

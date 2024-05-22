@@ -2,7 +2,7 @@ import { Icon } from '@/components'
 import { useTheme } from '@/providers/ThemeProvider'
 import { MemberRequest, useStreamVideoClient } from '@stream-io/video-react-native-sdk'
 import * as Crypto from 'expo-crypto'
-import { Stack, router, useLocalSearchParams } from 'expo-router'
+import { Stack, useLocalSearchParams } from 'expo-router'
 import { useEffect, useState } from 'react'
 import { Pressable } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
@@ -39,18 +39,16 @@ export default function ChannelScreen() {
     const call = videoClient!.call('default', callId)
 
     await call.getOrCreate({
+      ring: true,
       data: {
         members,
       },
     })
-
-    router.push(`/call/${call.id}`)
   }
 
   return (
     <Channel channel={channel} audioRecordingEnabled>
       <Stack.Screen
-        name={'[cid]'}
         options={{
           headerRight: () => (
             <Pressable onPress={onCall} style={{ marginHorizontal: 8 }}>

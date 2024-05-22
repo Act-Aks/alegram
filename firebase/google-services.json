@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "861207995929",
+    "project_id": "alegram-aks",
+    "storage_bucket": "alegram-aks.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:861207995929:android:7eb0bc3dcea4f11ae2ac88",
+        "android_client_info": {
+          "package_name": "com.actaks.Alegram"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCv5jONKbRBhoktOC7X1VcMCKhwKRkrCOk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
